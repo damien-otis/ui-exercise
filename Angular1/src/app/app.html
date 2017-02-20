@@ -1,0 +1,31 @@
+<div class="container">
+  
+  <div>
+  Filter by Name: <input type="text" ng-model="vm.filterByName" class="form-control"/>
+  </div>
+
+  <div>
+  Filter by Size: <label for="size-small">Small <input type="checkbox" value="small" name="size-small" ng-model="vm.sizes.small"/></label>
+  								<label for="size-medim">Medium <input type="checkbox" value="small" name="size-medium" ng-model="vm.sizes.medium"/></label>
+  								<label for="size-large">Large <input type="checkbox" value="small" name="size-large" ng-model="vm.sizes.large"/></label>
+  								<label for="size-extra-large">Extra-large <input type="checkbox" value="small" name="size-extra-large" ng-model="vm.sizes.extraLarge"/></label>
+ 	</div>
+
+ 	<div>
+  Filter by Capacity: <rzslider rz-slider-model="vm.sliderValues.minValue" rz-slider-high="vm.sliderValues.maxValue" rz-slider-options="vm.sliderConfig"></rzslider>
+  </div>
+  <br/>
+  <h1>Widgets:</h1>
+  <div ng-repeat="widget in vm.widgets | widgetFilter: vm.constraints" ng-click="widget.$$moreinfo = !widget.$$moreinfo" ng-class="{'info-open': widget.$$moreinfo}">
+  	<div class="widget">
+  		<h2>{{widget.name}}</h2>
+	  	<div ng-if="widget.$$moreinfo" class="widget-info">
+  			<div>Size: {{widget.size}}</div>
+  			<div>Capacity: {{widget.capacity}}</div>
+  		</div>
+  	</div>
+
+  </div>
+
+
+</div>

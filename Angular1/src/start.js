@@ -1,14 +1,14 @@
 'use strict';
 
 (() => {
-  angular.module('app', ['ngRoute'])
+  angular.module('app', ['ngRoute','rzModule'])
   .config(['$routeProvider', '$locationProvider',($routeProvider, $locationProvider) => {
     $routeProvider
-    .when('/dashboard', {
-      template: '<dashboard></dashboard>'
+    .when('/app', {
+      template: '<app></app>'
     })
     .otherwise({
-      redirectTo: '/dashboard'
+      redirectTo: '/app'
     });
 
     $locationProvider.html5Mode(true);

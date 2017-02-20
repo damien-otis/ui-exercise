@@ -23,6 +23,7 @@ gulp.task('copy', () => {
     'node_modules/angular-route/angular-route.min.js',
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/angularjs-slider/dist/rzslider.min.js',
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/d3/build/d3.min.js'
   ])
@@ -45,7 +46,10 @@ gulp.task('html', () => {
 });
 
 gulp.task('sass', () => {
-  return gulp.src('src/**/*.scss')
+  return gulp.src([
+	    'src/**/*.scss',
+	    'node_modules/angularjs-slider/dist/rzslider.scss'
+	   ])
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('dist'));
